@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useSelector } from "react-redux";
 
 function MainPageCarousel() {
 
+    const globalState = useSelector((state) => state);
 
     // const [display, setDisplay] = useState(1);
 
@@ -32,7 +34,7 @@ function MainPageCarousel() {
 
     return (
         <div style={{ textAlign: "center", position: "fixed", marginLeft: "40%" }}>
-            <h2>Welcome To Home Page</h2>
+            {globalState.backdropTrigger ? <h2>Welcome To Home Page</h2> : ""}
             {/* <div className="carousel" >
                 <div>
 
