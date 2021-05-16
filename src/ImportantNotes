@@ -1,0 +1,149 @@
+Logic for radio button filtering
+
+
+Im Actions file:
+
+export const FILTER_MEN = "FILTER_MEN";
+
+export function filterMen (filterResults) {
+    return { 
+        type: FILTER_MEN,
+        payload: filterResults
+    }
+}
+.
+.
+. and so on all other actions
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+In reducer file:
+
+
+import { actions here } from './Actions/Actions;
+
+filterResults = {
+    Men: 
+        {
+            image:[],
+            price:[],
+            description:[],
+        }
+    ,
+    Women: 
+        {
+            image:"",
+            price:"",
+            description:""
+        }
+    ,
+    Kids: 
+        {
+            image:"",
+            price:"",
+            description:""
+        }
+    ,
+    Oldage: 
+        {
+            image:"",
+            price:"",
+            description:""
+        }
+    ,
+    
+}
+
+const export RootReducer = (state = filterResults, action) => {
+    switch (action.type) {
+        case FILTER_MEN:
+            const fetchingMenPictures = async () => await axios("Api link of men's images");  
+            const fetchingMenPrice = async () => await axios("Api link of men's Price");  
+            const fetchingMenDescription async () => await axios("Api link of men's Description");
+            return {
+                ...state.Men,
+                image: imageFetching,
+                price: priceFetching,
+                description: descriptionFetching,
+                imageFetching = fetchingMenPictures.data, // The Route for the required data of object in that particular Api that we're wanting to render on screen. The keyword next to the axios function can be anything. Such as: results, list etc...
+                priceFetching = fetchingMenPrice.results, // And the Routing can go even more into the array of Api. Like shown in the below assignment.
+                descriptionFetching = fetchingMenDescription.results.list.matter... and so on until  we navigate to the path from where we want the data to be rendered.
+            }  
+        case FILTER_WOMEN, case FILTER_KIDS, case FILTER_OLDAGE all follow the same logic as FILTER_MEN.
+    }
+}
+
+------------------------------------------------------------------------------------------------------------------
+
+In components:
+
+
+import React, { useState } from 'react';
+import { filterMen, filterWomen, filterKids, filterOldage } from './Actions/Actions';
+import { useSelector, useDispatch } from 'react-redux';
+
+function something () {
+
+    const [show, setShow] = useState(false);
+
+    const fetchingItems = useSelector(state => state);
+    const dispatch = useDispatch();
+
+    const handleChages = (val) => {
+        setShow(true);
+        if (val === 1) {
+            dispatch(filterMen())
+            setShow(false);
+        }
+        setShow(true);
+        if (val === 2) {
+            dispatch(filterWomen())
+            setShow(false);
+        }
+        setShow(true);
+        if (val === 3) {
+            dispatch(filterKids())
+            setShow(false);
+        }
+        setShow(true);
+        if (val === 4) {
+            dispatch(filterOldage())
+            setShow(false);
+        }
+    }
+
+    return (
+
+        <div>
+            <input type="radio"  onChange={handleChages(1)} /> : Men
+            <input type="radio"  onChange={handleChages(2)} /> : Women
+            <input type="radio"  onChange={handleChages(3)} /> : Kids
+            <input type="radio"  onChange={handleChages(4)} /> : Men
+            .
+            .
+            .
+            Same pattern for brands filtering too.
+            {show ? "loading..." : 
+                <div>
+                    {fetchingItems.Men.image.map((id, items) => (
+                        <div key={id}" >
+                            <img src={items.whateverNameThatApiProvidedWrtPicture} /> 
+                        </div>
+                    ))}
+                    {fetchingItems.Men.price.map((id, items) => (
+                        <div key={id}" >
+                            <p> {items.whateverNameThatApiProvidedWrtMoney} </p>
+                        </div>
+                    ))}
+                    {fetchingItems.Men.descripton.map((id, items) => (
+                        <div key={id}" >
+                            <p> {items.whateverNameThatApiProvidedWrtMatter} </p>
+                        </div>
+                    ))}
+                </div>
+            }
+        </div>
+    )
+}
+
+

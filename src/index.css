@@ -1,7 +1,8 @@
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue''Overlock SC',
+    'Courgette','Philosopher','KoHo','Acme', 'Varela Round','Concert One','Kaushan Script','Architects Daughter'
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -10,4 +11,26 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+p {
+  font-family: 'Overlock SC';
+}
+
+h1 {
+  font-family: 'Acme';
+}
+
+h2 {
+  font-family: 'Kaushan Script'
+}
+
+h3 {
+  font-family: 'Courgette'
+}
+
+::placeholder {
+  font-family: 'Architects Daughter';
+  font-weight: bolder;
+  font-size: 17px;
 }
