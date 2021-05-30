@@ -34,7 +34,7 @@ function MainPageCarousel() {
 
     return (
         <div style={{ textAlign: "center", position: "fixed", marginLeft: "40%" }}>
-            {globalState.backdropTrigger ? <h2>Welcome To Home Page</h2> : ""}
+            {globalState.contentsDisplay ? <div>{globalState.backdropTrigger ? <h2>Welcome To Home Page</h2> : ""}</div> : ""}
             {/* <div className="carousel" >
                 <div>
 

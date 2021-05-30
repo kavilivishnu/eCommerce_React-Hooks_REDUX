@@ -5,7 +5,8 @@ import {
     DECREMENT_COUNT,
     DECREMENT_COUNT_CART,
     CLEAR_COUNT,
-    BACKGROUND_GREY
+    BACKGROUND_GREY,
+    SHOW_CONTENTS
 } from "../Actions/Actions";
 
 export const wish = {
@@ -27,7 +28,8 @@ export const wish = {
     watchCheck: "",
     shoesCheck: "",
     walletCheck: "",
-    backdropTrigger: ""
+    backdropTrigger: "",
+    contentsDisplay: ""
 };
 
 export const Reducer = (state = wish, action) => {
@@ -115,6 +117,12 @@ export const Reducer = (state = wish, action) => {
             return {
                 ...state,
                 backdropTrigger: Status
+            }
+        case SHOW_CONTENTS:
+            const contentsStatus = action.status;
+            return {
+                ...state,
+                contentsDisplay: contentsStatus
             }
         default:
             return state;

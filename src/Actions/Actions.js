@@ -5,6 +5,7 @@ export const DECREMENT_COUNT = "DECREMENT_COUNT";
 export const DECREMENT_COUNT_CART = "DECREMENT_COUNT_CART";
 export const CLEAR_COUNT = "CLEAR_COUNT";
 export const BACKGROUND_GREY = "BACKGROUND_GREY";
+export const SHOW_CONTENTS = "SHOW_CONTENTS";
 
 export function addToWishList(wish, id, photo, money, info, brand) {
     // ***The sequence of arguments of the function and the sequence of the arguments
@@ -67,6 +68,13 @@ export function clearCount() {
 export function backgroundGrey(status) {
     return {
         type: BACKGROUND_GREY,
+        status
+    }
+}
+
+export function showContents(status) {
+    return {
+        type: SHOW_CONTENTS,
         status
     }
 }

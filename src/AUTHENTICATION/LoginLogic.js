@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from 'react-redux';
+import { showContents } from '../Actions/Actions';
 // import CheckBox1 from "../MAINLOGIC/CheckBox1";
 import LoginAndSignUp from "./LoginAndSignUp";
 import fire from "../config/fire";
@@ -9,6 +11,9 @@ import MainPageCarousel from '../CAROUSEL/MainPageCarousel';
 import SideDrawer from "../SIDEDRAWER/SideDrawer";
 
 function LoginLogic() {
+
+    const dispatch = useDispatch();
+
     const [user, setUser] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -16,6 +21,9 @@ function LoginLogic() {
     const [passwordError, setPasswordError] = useState("");
     const [hasAccount, setHasAccount] = useState(false);
     const [showCaroursel, setShowCaroursel] = useState(false);
+
+    const showTheContents = true;
+    const dontShowTheContents = false;
 
     const clearInputs = () => {
         setEmail("");
@@ -28,6 +36,7 @@ function LoginLogic() {
     };
 
     const handleLogin = (e) => {
+        dispatch(showContents(showTheContents));
         e.preventDefault(e);
         clearErrors();
         fire
@@ -37,6 +46,7 @@ function LoginLogic() {
                 console.log(u);
             })
             .catch((err) => {
+                dispatch(showContents(dontShowTheContents));
                 switch (err.code) {
                     case "auth/invalid-email":
                     case "auth/user-disabled":
@@ -53,6 +63,7 @@ function LoginLogic() {
     };
 
     const handleSignup = () => {
+        dispatch(showContents(showTheContents));
         clearInputs();
         fire
             .auth()
@@ -61,6 +72,7 @@ function LoginLogic() {
                 console.log(u);
             })
             .catch((err) => {
+                dispatch(showContents(dontShowTheContents));
                 switch (err.code) {
                     case "auth/email-already-exists":
                     case "auth/invalid-email":
@@ -78,6 +90,7 @@ function LoginLogic() {
     const handleLogout = () => {
         fire.auth().signOut();
         console.log("working");
+        dispatch(showContents(dontShowTheContents));
     };
 
     const authListener = () => {

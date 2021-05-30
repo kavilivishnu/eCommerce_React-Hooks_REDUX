@@ -123,308 +123,314 @@ function Kids() {
 
     return (
         <div className={globalState.backdropTrigger ? "Grey_Background" : "Kids_Data"} >
-            <h3 style={{ marginLeft: "45%", position: "fixed" }}>
-                WishList ({globalState.wishCount}) Cart({globalState.cartCount}){" "}
-                {/* WishList ({globalState.wishCount}){" "} */}
-            </h3>
-            <br />
-            <br />
-            {globalState.wishCount !== 0 ^ globalState.wishCount > 0 ? <Navigate1 setShowList={setShowList} showList={showList} /> : ""}
-            {/* <Navigate1 setShowList={setShowList} showList={showList} /> */}
-            <br />
-            <br />
-            <div className="WishList_And_Cart" >
-                <span style={{ marginRight: "10%" }} onClick={() => handleOpen(1)}>
-                    {globalState.wishCount !== 0 ?
-                        <BsFillHeartFill size="25" style={{ outline: "none", color: "red" }} />
-                        :
-                        <BsFillHeartFill size="25" style={{ color: "black", opacity: "25%" }} />}
-                </span>
-                <span onClick={() => handleOpen(2)}><BiCartAlt size="25" /></span>
-            </div>
-            {showList ? (
+            {globalState.contentsDisplay ?
                 <div>
-                    {showWishList ? <div style={{ justifyContent: 'center' }}>
-                        <WishListPage
-                            setShowList={setShowList}
-                        />
-                    </div> : ""}
-                    {showCart ? <div style={{ justifyContent: 'center' }}>
-                        <CartPage
-                            setShowList={setShowList}
-                            cartTotal={cartTotal}
-                            setCartTotal={setCartTotal}
-                        />
-                    </div> : ""}
-                </div>
-            ) : (
-                <div>
-                    <div style={{ marginRight: "85%" }} >
-                        <h3 className="Apply_Filters_Heading" >Apply Filters</h3>
-                        <div>
-                            <input type="checkbox" checked={checkedToys} onClick={() => handleChecked(1)} />
-                            <label>Toys</label> <br />
-                        </div>
-                        <div>
-                            <input type="checkbox" checked={checkedShoes} onClick={() => handleChecked(2)} />
-                            <label >Shoes</label><br />
-                        </div>
-                        <div>
-                            <input type="checkbox" checked={checkedJacket} onClick={() => handleChecked(3)} />
-                            <label>Jackets</label>
-                        </div>
+                    <h3 style={{ marginLeft: "45%", position: "fixed" }}>
+                        WishList ({globalState.wishCount}) Cart({globalState.cartCount}){" "}
+                        {/* WishList ({globalState.wishCount}){" "} */}
+                    </h3>
+                    <br />
+                    <br />
+                    {globalState.wishCount !== 0 ^ globalState.wishCount > 0 ? <Navigate1 setShowList={setShowList} showList={showList} /> : ""}
+                    {/* <Navigate1 setShowList={setShowList} showList={showList} /> */}
+                    <br />
+                    <br />
+                    <div className="WishList_And_Cart" >
+                        <span style={{ marginRight: "10%" }} onClick={() => handleOpen(1)}>
+                            {globalState.wishCount !== 0 ?
+                                <BsFillHeartFill size="25" style={{ outline: "none", color: "red" }} />
+                                :
+                                <BsFillHeartFill size="25" style={{ color: "black", opacity: "25%" }} />}
+                        </span>
+                        <span onClick={() => handleOpen(2)}><BiCartAlt size="25" /></span>
                     </div>
-                    { checkedToys ^ checkedShoes ^ checkedJacket === false ?
+                    {showList ? (
                         <div>
-                            {array.map((photo, index) => (
-                                <div key={index} className="Arrange_API_Data" >
-                                    <img src={photo.urls.small} className="API_Images" />
-                                    <br />
-                                    <div className="Items_Descriptions" >
-                                        <p> <b style={{ color: "rgb(255, 89, 71)" }} >Brand:</b> {photo.user.first_name} </p>
-                                        {visibleAmount ? <p><b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.width * text} </p> : <p> <b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.width} </p>}
-                                        <p><b style={{ color: "rgb(255, 89, 71)" }} >Description:</b> {photo.alt_description} </p>
-                                    </div>
-                                    <br />
-                                    {index === check ?
-                                        <div>
-                                            <p className="Quantity_Input" ><b>Quantity:</b></p> <input style={{ borderRadius: "7px" }} value={text} onChange={(e) => setText(e.target.value)} />
-                                        </div>
-                                        :
-                                        " "
-                                    }
-                                    <div>
-                                        <button
-                                            className="Add_To_WishList_And_Cart_Buttons"
-                                            style={{ marginRight: "16px" }}
-                                            onClick={() =>
-                                                handleWishlist(
-                                                    null,
-                                                    photo.id,
-                                                    photo.urls.small,
-                                                    photo.width,
-                                                    photo.alt_description,
-                                                    photo.user.first_name,
-                                                    index
-                                                )
-                                            }
-                                        >
-                                            Add To Wishlist
-                                        </button>
-                                        <button
-                                            className="Add_To_WishList_And_Cart_Buttons"
-                                            onClick={() =>
-                                                handleTocart(
-                                                    null,
-                                                    photo.id,
-                                                    photo.urls.small,
-                                                    photo.width * text,
-                                                    photo.alt_description,
-                                                    photo.user.first_name,
-                                                    index
-                                                )
-                                            }
-                                        >
-                                            Add To Cart
-                                        </button>
-                                    </div>
-                                </div>
-                            ))}
+                            {showWishList ? <div style={{ justifyContent: 'center' }}>
+                                <WishListPage
+                                    setShowList={setShowList}
+                                />
+                            </div> : ""}
+                            {showCart ? <div style={{ justifyContent: 'center' }}>
+                                <CartPage
+                                    setShowList={setShowList}
+                                    cartTotal={cartTotal}
+                                    setCartTotal={setCartTotal}
+                                />
+                            </div> : ""}
                         </div>
-                        :
-                        ""
-                    }
-                    <br />
-                    { checkedToys ?
+                    ) : (
                         <div>
+                            <div style={{ marginRight: "85%" }} >
+                                <h3 className="Apply_Filters_Heading" >Apply Filters</h3>
+                                <div>
+                                    <input type="checkbox" checked={checkedToys} onClick={() => handleChecked(1)} />
+                                    <label>Toys</label> <br />
+                                </div>
+                                <div>
+                                    <input type="checkbox" checked={checkedShoes} onClick={() => handleChecked(2)} />
+                                    <label >Shoes</label><br />
+                                </div>
+                                <div>
+                                    <input type="checkbox" checked={checkedJacket} onClick={() => handleChecked(3)} />
+                                    <label>Jackets</label>
+                                </div>
+                            </div>
+                            { checkedToys ^ checkedShoes ^ checkedJacket === false ?
+                                <div>
+                                    {array.map((photo, index) => (
+                                        <div key={index} className="Arrange_API_Data" >
+                                            <img src={photo.urls.small} className="API_Images" />
+                                            <br />
+                                            <div className="Items_Descriptions" >
+                                                <p> <b style={{ color: "rgb(255, 89, 71)" }} >Brand:</b> {photo.user.first_name} </p>
+                                                {visibleAmount ? <p><b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.width * text} </p> : <p> <b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.width} </p>}
+                                                <p><b style={{ color: "rgb(255, 89, 71)" }} >Description:</b> {photo.alt_description} </p>
+                                            </div>
+                                            <br />
+                                            {index === check ?
+                                                <div>
+                                                    <p className="Quantity_Input" ><b>Quantity:</b></p> <input style={{ borderRadius: "7px" }} value={text} onChange={(e) => setText(e.target.value)} />
+                                                </div>
+                                                :
+                                                " "
+                                            }
+                                            <div>
+                                                <button
+                                                    className="Add_To_WishList_And_Cart_Buttons"
+                                                    style={{ marginRight: "16px" }}
+                                                    onClick={() =>
+                                                        handleWishlist(
+                                                            null,
+                                                            photo.id,
+                                                            photo.urls.small,
+                                                            photo.width,
+                                                            photo.alt_description,
+                                                            photo.user.first_name,
+                                                            index
+                                                        )
+                                                    }
+                                                >
+                                                    Add To Wishlist
+                                        </button>
+                                                <button
+                                                    className="Add_To_WishList_And_Cart_Buttons"
+                                                    onClick={() =>
+                                                        handleTocart(
+                                                            null,
+                                                            photo.id,
+                                                            photo.urls.small,
+                                                            photo.width * text,
+                                                            photo.alt_description,
+                                                            photo.user.first_name,
+                                                            index
+                                                        )
+                                                    }
+                                                >
+                                                    Add To Cart
+                                        </button>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                                :
+                                ""
+                            }
                             <br />
-                            <h1>Kids Toys</h1>
-                            {toyArray.map((photo, index) => (
-                                <div key={index} className="Arrange_API_Data" >
-                                    <img src={photo.urls.small} className="API_Images" />
+                            { checkedToys ?
+                                <div>
                                     <br />
-                                    <div className="Items_Descriptions" >
-                                        <p> <b style={{ color: "rgb(255, 89, 71)" }} >Brand:</b> {photo.user.first_name} </p>
-                                        {visibleAmount ? <p><b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.width * text} </p> : <p> <b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.width} </p>}
-                                        <p><b style={{ color: "rgb(255, 89, 71)" }} >Description:</b> {photo.alt_description} </p>
-                                    </div>
-                                    <br />
-                                    {index === check ?
-                                        <div>
-                                            <p className="Quantity_Input" ><b>Quantity:</b></p> <input style={{ borderRadius: "7px" }} value={text} onChange={(e) => setText(e.target.value)} />
+                                    <h1>Kids Toys</h1>
+                                    {toyArray.map((photo, index) => (
+                                        <div key={index} className="Arrange_API_Data" >
+                                            <img src={photo.urls.small} className="API_Images" />
+                                            <br />
+                                            <div className="Items_Descriptions" >
+                                                <p> <b style={{ color: "rgb(255, 89, 71)" }} >Brand:</b> {photo.user.first_name} </p>
+                                                {visibleAmount ? <p><b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.width * text} </p> : <p> <b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.width} </p>}
+                                                <p><b style={{ color: "rgb(255, 89, 71)" }} >Description:</b> {photo.alt_description} </p>
+                                            </div>
+                                            <br />
+                                            {index === check ?
+                                                <div>
+                                                    <p className="Quantity_Input" ><b>Quantity:</b></p> <input style={{ borderRadius: "7px" }} value={text} onChange={(e) => setText(e.target.value)} />
+                                                </div>
+                                                :
+                                                " "
+                                            }
+                                            <div>
+                                                <button
+                                                    className="Add_To_WishList_And_Cart_Buttons"
+                                                    style={{ marginRight: "16px" }}
+                                                    onClick={() =>
+                                                        handleWishlist(
+                                                            null,
+                                                            photo.id,
+                                                            photo.urls.small,
+                                                            photo.width,
+                                                            photo.alt_description,
+                                                            photo.user.first_name,
+                                                            index
+                                                        )
+                                                    }
+                                                >
+                                                    Add To Wishlist
+                                        </button>
+                                                <button
+                                                    className="Add_To_WishList_And_Cart_Buttons"
+                                                    onClick={() =>
+                                                        handleTocart(
+                                                            null,
+                                                            photo.id,
+                                                            photo.urls.small,
+                                                            photo.width * text,
+                                                            photo.alt_description,
+                                                            photo.user.first_name,
+                                                            index
+                                                        )
+                                                    }
+                                                >
+                                                    Add To Cart
+                                        </button>
+                                            </div>
                                         </div>
-                                        :
-                                        " "
-                                    }
-                                    <div>
-                                        <button
-                                            className="Add_To_WishList_And_Cart_Buttons"
-                                            style={{ marginRight: "16px" }}
-                                            onClick={() =>
-                                                handleWishlist(
-                                                    null,
-                                                    photo.id,
-                                                    photo.urls.small,
-                                                    photo.width,
-                                                    photo.alt_description,
-                                                    photo.user.first_name,
-                                                    index
-                                                )
-                                            }
-                                        >
-                                            Add To Wishlist
-                                        </button>
-                                        <button
-                                            className="Add_To_WishList_And_Cart_Buttons"
-                                            onClick={() =>
-                                                handleTocart(
-                                                    null,
-                                                    photo.id,
-                                                    photo.urls.small,
-                                                    photo.width * text,
-                                                    photo.alt_description,
-                                                    photo.user.first_name,
-                                                    index
-                                                )
-                                            }
-                                        >
-                                            Add To Cart
-                                        </button>
-                                    </div>
+                                    ))}
                                 </div>
-                            ))}
-                        </div>
-                        :
-                        ""
-                    }
-                    <br />
-                    { checkedShoes ?
-                        <div>
+                                :
+                                ""
+                            }
                             <br />
-                            <h1>Kids Shoes</h1>
-                            {shoeArray.map((photo, index) => (
-                                <div key={index} className="Arrange_API_Data" >
-                                    <img src={photo.urls.small} className="API_Images" />
+                            { checkedShoes ?
+                                <div>
                                     <br />
-                                    <div className="Items_Descriptions" >
-                                        <p> <b style={{ color: "rgb(255, 89, 71)" }} >Brand:</b> {photo.user.first_name} </p>
-                                        {visibleAmount ? <p><b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.width * text} </p> : <p> <b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.width} </p>}
-                                        <p><b style={{ color: "rgb(255, 89, 71)" }} >Description:</b> {photo.alt_description} </p>
-                                    </div>
-                                    <br />
-                                    {index === check ?
-                                        <div>
-                                            <p className="Quantity_Input" ><b>Quantity:</b></p> <input style={{ borderRadius: "7px" }} value={text} onChange={(e) => setText(e.target.value)} />
+                                    <h1>Kids Shoes</h1>
+                                    {shoeArray.map((photo, index) => (
+                                        <div key={index} className="Arrange_API_Data" >
+                                            <img src={photo.urls.small} className="API_Images" />
+                                            <br />
+                                            <div className="Items_Descriptions" >
+                                                <p> <b style={{ color: "rgb(255, 89, 71)" }} >Brand:</b> {photo.user.first_name} </p>
+                                                {visibleAmount ? <p><b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.width * text} </p> : <p> <b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.width} </p>}
+                                                <p><b style={{ color: "rgb(255, 89, 71)" }} >Description:</b> {photo.alt_description} </p>
+                                            </div>
+                                            <br />
+                                            {index === check ?
+                                                <div>
+                                                    <p className="Quantity_Input" ><b>Quantity:</b></p> <input style={{ borderRadius: "7px" }} value={text} onChange={(e) => setText(e.target.value)} />
+                                                </div>
+                                                :
+                                                " "
+                                            }
+                                            <div>
+                                                <button
+                                                    className="Add_To_WishList_And_Cart_Buttons"
+                                                    style={{ marginRight: "16px" }}
+                                                    onClick={() =>
+                                                        handleWishlist(
+                                                            null,
+                                                            photo.id,
+                                                            photo.urls.small,
+                                                            photo.width,
+                                                            photo.alt_description,
+                                                            photo.user.first_name,
+                                                            index
+                                                        )
+                                                    }
+                                                >
+                                                    Add To Wishlist
+                                        </button>
+                                                <button
+                                                    className="Add_To_WishList_And_Cart_Buttons"
+                                                    onClick={() =>
+                                                        handleTocart(
+                                                            null,
+                                                            photo.id,
+                                                            photo.urls.small,
+                                                            photo.width * text,
+                                                            photo.alt_description,
+                                                            photo.user.first_name,
+                                                            index
+                                                        )
+                                                    }
+                                                >
+                                                    Add To Cart
+                                        </button>
+                                            </div>
                                         </div>
-                                        :
-                                        " "
-                                    }
-                                    <div>
-                                        <button
-                                            className="Add_To_WishList_And_Cart_Buttons"
-                                            style={{ marginRight: "16px" }}
-                                            onClick={() =>
-                                                handleWishlist(
-                                                    null,
-                                                    photo.id,
-                                                    photo.urls.small,
-                                                    photo.width,
-                                                    photo.alt_description,
-                                                    photo.user.first_name,
-                                                    index
-                                                )
-                                            }
-                                        >
-                                            Add To Wishlist
-                                        </button>
-                                        <button
-                                            className="Add_To_WishList_And_Cart_Buttons"
-                                            onClick={() =>
-                                                handleTocart(
-                                                    null,
-                                                    photo.id,
-                                                    photo.urls.small,
-                                                    photo.width * text,
-                                                    photo.alt_description,
-                                                    photo.user.first_name,
-                                                    index
-                                                )
-                                            }
-                                        >
-                                            Add To Cart
-                                        </button>
-                                    </div>
+                                    ))}
                                 </div>
-                            ))}
-                        </div>
-                        :
-                        ""
-                    }
-                    <br />
-                    { checkedJacket ?
-                        <div>
+                                :
+                                ""
+                            }
                             <br />
-                            <h1>Kids Jackets</h1>
-                            {jacketArray.map((photo, index) => (
-                                <div key={index} className="Arrange_API_Data" >
-                                    <img src={photo.urls.small} className="API_Images" />
+                            { checkedJacket ?
+                                <div>
                                     <br />
-                                    <div className="Items_Descriptions" >
-                                        <p> <b style={{ color: "rgb(255, 89, 71)" }} >Brand:</b> {photo.user.first_name} </p>
-                                        {visibleAmount ? <p><b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.width * text} </p> : <p> <b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.width} </p>}
-                                        <p><b style={{ color: "rgb(255, 89, 71)" }} >Description:</b> {photo.alt_description} </p>
-                                    </div>
-                                    <br />
-                                    {index === check ?
-                                        <div>
-                                            <p className="Quantity_Input" ><b>Quantity:</b></p> <input style={{ borderRadius: "7px" }} value={text} onChange={(e) => setText(e.target.value)} />
+                                    <h1>Kids Jackets</h1>
+                                    {jacketArray.map((photo, index) => (
+                                        <div key={index} className="Arrange_API_Data" >
+                                            <img src={photo.urls.small} className="API_Images" />
+                                            <br />
+                                            <div className="Items_Descriptions" >
+                                                <p> <b style={{ color: "rgb(255, 89, 71)" }} >Brand:</b> {photo.user.first_name} </p>
+                                                {visibleAmount ? <p><b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.width * text} </p> : <p> <b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.width} </p>}
+                                                <p><b style={{ color: "rgb(255, 89, 71)" }} >Description:</b> {photo.alt_description} </p>
+                                            </div>
+                                            <br />
+                                            {index === check ?
+                                                <div>
+                                                    <p className="Quantity_Input" ><b>Quantity:</b></p> <input style={{ borderRadius: "7px" }} value={text} onChange={(e) => setText(e.target.value)} />
+                                                </div>
+                                                :
+                                                " "
+                                            }
+                                            <div>
+                                                <button
+                                                    className="Add_To_WishList_And_Cart_Buttons"
+                                                    style={{ marginRight: "16px" }}
+                                                    onClick={() =>
+                                                        handleWishlist(
+                                                            null,
+                                                            photo.id,
+                                                            photo.urls.small,
+                                                            photo.width,
+                                                            photo.alt_description,
+                                                            photo.user.first_name,
+                                                            index
+                                                        )
+                                                    }
+                                                >
+                                                    Add To Wishlist
+                                        </button>
+                                                <button
+                                                    className="Add_To_WishList_And_Cart_Buttons"
+                                                    onClick={() =>
+                                                        handleTocart(
+                                                            null,
+                                                            photo.id,
+                                                            photo.urls.small,
+                                                            photo.width * text,
+                                                            photo.alt_description,
+                                                            photo.user.first_name,
+                                                            index
+                                                        )
+                                                    }
+                                                >
+                                                    Add To Cart
+                                        </button>
+                                            </div>
                                         </div>
-                                        :
-                                        " "
-                                    }
-                                    <div>
-                                        <button
-                                            className="Add_To_WishList_And_Cart_Buttons"
-                                            style={{ marginRight: "16px" }}
-                                            onClick={() =>
-                                                handleWishlist(
-                                                    null,
-                                                    photo.id,
-                                                    photo.urls.small,
-                                                    photo.width,
-                                                    photo.alt_description,
-                                                    photo.user.first_name,
-                                                    index
-                                                )
-                                            }
-                                        >
-                                            Add To Wishlist
-                                        </button>
-                                        <button
-                                            className="Add_To_WishList_And_Cart_Buttons"
-                                            onClick={() =>
-                                                handleTocart(
-                                                    null,
-                                                    photo.id,
-                                                    photo.urls.small,
-                                                    photo.width * text,
-                                                    photo.alt_description,
-                                                    photo.user.first_name,
-                                                    index
-                                                )
-                                            }
-                                        >
-                                            Add To Cart
-                                        </button>
-                                    </div>
+                                    ))}
                                 </div>
-                            ))}
+                                :
+                                ""
+                            }
                         </div>
-                        :
-                        ""
-                    }
+                    )}
                 </div>
-            )}
+                :
+                ""
+            }
         </div>
     );
 }
