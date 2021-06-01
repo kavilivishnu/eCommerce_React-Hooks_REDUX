@@ -69,7 +69,7 @@ function WishListPage({ setShowList }) {
                                 <br />
                                 <div className="Items_Descriptions" >
                                     <p> <b style={{ color: "rgb(255, 89, 71)" }} >Brand:</b> {photo.brand} </p>
-                                    <p> <b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.price}</p>
+                                    <p> <b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.price} {fetchUpdated.symbol}</p>
                                     <p> <b style={{ color: "rgb(255, 89, 71)" }} >Description:</b> {photo.description} </p>
                                 </div>
                                 <button className="NavigationBar_LogOut_Butoon" onClick={() => handleDelete(photo)}>Remove</button>

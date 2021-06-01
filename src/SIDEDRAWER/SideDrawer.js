@@ -40,7 +40,7 @@ function SideDrawer({ handleLogout }) {
                                 textDecoration: "none"
                             }}
                         >
-                            <GiShoppingBag size="30" /> { /* Replace this name with your APP'S ICON */}
+                            <GiShoppingBag size="30" color="black" /> { /* Replace this name with your APP'S ICON */}
                         </Link>
 
                         <Link to="/Men1" className="Navigation_Bar_Items" onClick={() => dispatch(backgroundGrey(dontShowComponent))}
@@ -105,7 +105,7 @@ function SideDrawer({ handleLogout }) {
                             OFFERS
                         </Link> */}
 
-                    </nav>
+                    </nav><br />
                 </div>
                 :
                 <span style={{ fontFamily: 'Varela Round' }} onClick={() => setShowDrawer(true)} >😃Open Me</span>

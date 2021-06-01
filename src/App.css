@@ -51,6 +51,21 @@
   font-size: 20px;
 }
 
+.select {
+  margin-top: 40px;
+  font-family: "Overlock SC";
+  font-size: 20px;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  /* borderBottom: "3px solid rgb(47, 61, 253)", */
+  border-bottom: 3px solid rgb(207, 189, 221);
+  width: 17%;
+}
+
 /* -------------------------------------- SIGN UP AND SIGN IN BUTTONS ------------------------- */
 
 .SignUp_And_SignIn {
@@ -147,9 +162,10 @@
 /* -------------------------------------- STYLING OF CONTENTS WITHIN MEN COMPONENT OF NAV BAR --------------------------  */
 
 .WishList_And_Cart_Count{
-  margin-left: 44.5%;
+  margin-left: 42.5%;
   position: fixed;
   margin-top: 5%;
+  font-size: 23px;
 }
 
 .WishList_And_Cart{
@@ -268,6 +284,13 @@ input[type='checkbox'] + label {
     font-size: 13px;
   }
 
+  .select {
+    font-size: 15px;
+    width: 50%;
+    margin-top: 20%;
+    margin-left: -9%;
+  }
+
   /* -------------------------------------- SIGN UP AND SIGN IN BUTTONS ------------------------- */
 
   .SignUp_And_SignIn {
@@ -281,8 +304,8 @@ input[type='checkbox'] + label {
   /* ----------------------------------------- APPLY FILTERS STYLING----------------------------------- */
 
   .Apply_Filters_Heading {
-    margin-left: 30%;
-    margin-right: -120%;
+    margin-left: 40%;
+    margin-right: -150%;
     font-size:20px;
   }
 
@@ -307,8 +330,9 @@ input[type='checkbox'] + label {
   /* -------------------------------------- STYLING FOR WISHLIST AND CART COUNT------------------- */
 
   .WishList_And_Cart_Count {
-    margin-left: 30%;
-    font-size: 25px;
+    margin-top: 10%;
+    margin-left: 32%;
+    font-size: 20px;
   }
 
   .WishList_And_Cart{

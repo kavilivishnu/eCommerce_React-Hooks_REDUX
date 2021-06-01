@@ -125,7 +125,7 @@ function Kids() {
         <div className={globalState.backdropTrigger ? "Grey_Background" : "Kids_Data"} >
             {globalState.contentsDisplay ?
                 <div>
-                    <h3 style={{ marginLeft: "45%", position: "fixed" }}>
+                    <h3 className="WishList_And_Cart_Count" >
                         WishList ({globalState.wishCount}) Cart({globalState.cartCount}){" "}
                         {/* WishList ({globalState.wishCount}){" "} */}
                     </h3>
@@ -184,7 +184,7 @@ function Kids() {
                                             <br />
                                             <div className="Items_Descriptions" >
                                                 <p> <b style={{ color: "rgb(255, 89, 71)" }} >Brand:</b> {photo.user.first_name} </p>
-                                                {visibleAmount ? <p><b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.width * text} </p> : <p> <b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.width} </p>}
+                                                {visibleAmount ? <p><b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.width * text} {globalState.symbol} </p> : <p> <b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.width} {globalState.symbol} </p>}
                                                 <p><b style={{ color: "rgb(255, 89, 71)" }} >Description:</b> {photo.alt_description} </p>
                                             </div>
                                             <br />
@@ -247,7 +247,7 @@ function Kids() {
                                             <br />
                                             <div className="Items_Descriptions" >
                                                 <p> <b style={{ color: "rgb(255, 89, 71)" }} >Brand:</b> {photo.user.first_name} </p>
-                                                {visibleAmount ? <p><b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.width * text} </p> : <p> <b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.width} </p>}
+                                                {visibleAmount ? <p><b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.width * text} {globalState.symbol} </p> : <p> <b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.width} {globalState.symbol} </p>}
                                                 <p><b style={{ color: "rgb(255, 89, 71)" }} >Description:</b> {photo.alt_description} </p>
                                             </div>
                                             <br />
@@ -310,7 +310,7 @@ function Kids() {
                                             <br />
                                             <div className="Items_Descriptions" >
                                                 <p> <b style={{ color: "rgb(255, 89, 71)" }} >Brand:</b> {photo.user.first_name} </p>
-                                                {visibleAmount ? <p><b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.width * text} </p> : <p> <b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.width} </p>}
+                                                {visibleAmount ? <p><b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.width * text} {globalState.symbol} </p> : <p> <b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.width} {globalState.symbol} </p>}
                                                 <p><b style={{ color: "rgb(255, 89, 71)" }} >Description:</b> {photo.alt_description} </p>
                                             </div>
                                             <br />
@@ -373,7 +373,7 @@ function Kids() {
                                             <br />
                                             <div className="Items_Descriptions" >
                                                 <p> <b style={{ color: "rgb(255, 89, 71)" }} >Brand:</b> {photo.user.first_name} </p>
-                                                {visibleAmount ? <p><b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.width * text} </p> : <p> <b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.width} </p>}
+                                                {visibleAmount ? <p><b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.width * text} {globalState.symbol} </p> : <p> <b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.width} {globalState.symbol} </p>}
                                                 <p><b style={{ color: "rgb(255, 89, 71)" }} >Description:</b> {photo.alt_description} </p>
                                             </div>
                                             <br />

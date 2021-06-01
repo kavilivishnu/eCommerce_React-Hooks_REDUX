@@ -104,9 +104,16 @@ function LoginLogic() {
         });
     };
 
+    // useEffect(() => {
+    //     authListener();
+    // }, []);
+
     useEffect(() => {
         authListener();
-    }, []);
+        if (user === user) {
+            dispatch(showContents(showTheContents));
+        }
+    }, [showTheContents]);
 
     return (
         <div>

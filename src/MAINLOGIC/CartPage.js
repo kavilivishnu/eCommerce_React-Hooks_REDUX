@@ -49,7 +49,7 @@ function CartPage({
             <p className="Items_Descriptions">
                 <b style={{ color: "rgb(255, 89, 71)" }} >
                     Total Amout:
-                </b> {cartTotal}
+                </b> {cartTotal} {fetchUpdated.symbol}
             </p><br />
             <button
                 // className="Add_To_WishList_And_Cart_Buttons"
@@ -73,7 +73,7 @@ function CartPage({
                                 <br />
                                 <div className="Items_Descriptions" >
                                     <p> <b style={{ color: "rgb(255, 89, 71)" }} >Brand:</b> {photo.brand} </p>
-                                    <p> <b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.price} </p>
+                                    <p> <b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.price} {fetchUpdated.symbol}</p>
                                     <p> <b style={{ color: "rgb(255, 89, 71)" }} >Description:</b> {photo.description} </p>
                                 </div>
                                 <button className="NavigationBar_LogOut_Butoon" onClick={() => handleDelete(photo)}>Remove</button>

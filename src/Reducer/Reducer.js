@@ -6,7 +6,8 @@ import {
     DECREMENT_COUNT_CART,
     CLEAR_COUNT,
     BACKGROUND_GREY,
-    SHOW_CONTENTS
+    SHOW_CONTENTS,
+    CURRENCY_SELECT
 } from "../Actions/Actions";
 
 export const wish = {
@@ -29,7 +30,8 @@ export const wish = {
     shoesCheck: "",
     walletCheck: "",
     backdropTrigger: "",
-    contentsDisplay: ""
+    contentsDisplay: "",
+    symbol: ""
 };
 
 export const Reducer = (state = wish, action) => {
@@ -123,6 +125,12 @@ export const Reducer = (state = wish, action) => {
             return {
                 ...state,
                 contentsDisplay: contentsStatus
+            }
+        case CURRENCY_SELECT:
+            const symbolSelect = action.currency;
+            return {
+                ...state,
+                symbol: symbolSelect
             }
         default:
             return state;
