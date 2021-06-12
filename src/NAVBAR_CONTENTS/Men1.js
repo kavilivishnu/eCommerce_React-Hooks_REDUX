@@ -124,7 +124,8 @@ function Men1() {
             {globalState.contentsDisplay ?
                 <div>
                     <h3 className="WishList_And_Cart_Count" >
-                        WishList ({globalState.wishCount}) Cart({globalState.cartCount}){" "}
+                        <span className="WishList_Icon" >{globalState.wishCount}</span>
+                        <span className="Cart_Icon" >{globalState.cartCount}</span>
                     </h3>
                     <br />
                     <br />
@@ -173,7 +174,7 @@ function Men1() {
                                     <label>Wallet</label>
                                 </div>
                             </div>
-                            { checkedWatches ^ checkedShoes ^ checkedWallet === false ?
+                            {checkedWatches ^ checkedShoes ^ checkedWallet === false ?
                                 <div >
                                     {array.map((photo, index) => (
                                         <div key={index} className="Arrange_API_Data" >
@@ -208,7 +209,7 @@ function Men1() {
                                                     }
                                                 >
                                                     Add To Wishlist
-                                        </button>
+                                                </button>
                                                 <button
                                                     className="Add_To_WishList_And_Cart_Buttons"
                                                     onClick={() =>
@@ -224,7 +225,7 @@ function Men1() {
                                                     }
                                                 >
                                                     Add To Cart
-                                        </button>
+                                                </button>
                                             </div>
                                         </div>
                                     ))}
@@ -233,7 +234,7 @@ function Men1() {
                                 ""
                             }
                             <br />
-                            { checkedWatches ?
+                            {checkedWatches ?
                                 <div>
                                     <br />
                                     <h1>Men Watches</h1>
@@ -270,7 +271,7 @@ function Men1() {
                                                     }
                                                 >
                                                     Add To Wishlist
-                                        </button>
+                                                </button>
                                                 <button
                                                     className="Add_To_WishList_And_Cart_Buttons"
                                                     onClick={() =>
@@ -286,7 +287,7 @@ function Men1() {
                                                     }
                                                 >
                                                     Add To Cart
-                                        </button>
+                                                </button>
                                             </div>
                                         </div>
                                     ))}
@@ -295,7 +296,7 @@ function Men1() {
                                 ""
                             }
                             <br />
-                            { checkedShoes ?
+                            {checkedShoes ?
                                 <div>
                                     <br />
                                     <h1>Men Shoes</h1>
@@ -332,7 +333,7 @@ function Men1() {
                                                     }
                                                 >
                                                     Add To Wishlist
-                                        </button>
+                                                </button>
                                                 <button
                                                     className="Add_To_WishList_And_Cart_Buttons"
                                                     onClick={() =>
@@ -348,7 +349,7 @@ function Men1() {
                                                     }
                                                 >
                                                     Add To Cart
-                                        </button>
+                                                </button>
                                             </div>
                                         </div>
                                     ))}
@@ -357,7 +358,7 @@ function Men1() {
                                 ""
                             }
                             <br />
-                            { checkedWallet ?
+                            {checkedWallet ?
                                 <div>
                                     <br />
                                     <h1>Men Wallets</h1>
@@ -394,7 +395,7 @@ function Men1() {
                                                     }
                                                 >
                                                     Add To Wishlist
-                                        </button>
+                                                </button>
                                                 <button
                                                     className="Add_To_WishList_And_Cart_Buttons"
                                                     onClick={() =>
@@ -410,7 +411,7 @@ function Men1() {
                                                     }
                                                 >
                                                     Add To Cart
-                                        </button>
+                                                </button>
                                             </div>
                                         </div>
                                     ))}

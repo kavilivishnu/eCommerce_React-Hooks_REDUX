@@ -1,13 +1,15 @@
 import {
     ADD_TO_WISHLIST,
-    DELETE_ITEM,
     ADD_TO_CART,
     DECREMENT_COUNT,
     DECREMENT_COUNT_CART,
-    CLEAR_COUNT,
+    CLEAR_WISHLIST_COUNT,
+    CLEAR_CART_COUNT,
     BACKGROUND_GREY,
     SHOW_CONTENTS,
-    CURRENCY_SELECT
+    CURRENCY_SELECT,
+    WISHLIST_DELETE,
+    CART_DELETE
 } from "../Actions/Actions";
 
 export const wish = {
@@ -73,6 +75,7 @@ export const Reducer = (state = wish, action) => {
         //     ]
         // };
         case ADD_TO_CART:
+            const count2 = state.cartCount + 1;
             const cartList = [
                 ...state.cart,
                 {
@@ -85,16 +88,8 @@ export const Reducer = (state = wish, action) => {
             ];
             return {
                 ...state,
-                cart: cartList
-            };
-        case DELETE_ITEM:
-            const set = action.index;
-            const something = state.men.filter(
-                (individualItem) => individualItem.id !== set
-            );
-            return {
-                ...state,
-                men: something
+                cart: cartList,
+                cartCount: count2
             };
         case DECREMENT_COUNT:
             const minusWishListCount = state.wishCount - 1
@@ -108,11 +103,17 @@ export const Reducer = (state = wish, action) => {
                 ...state,
                 cartCount: minusCartCount
             }
-        case CLEAR_COUNT:
+        case CLEAR_WISHLIST_COUNT:
             return {
                 ...state,
                 wishCount: 0,
-                cartCount: 0
+                wishlist: []
+            }
+        case CLEAR_CART_COUNT:
+            return {
+                ...state,
+                cartCount: 0,
+                cart: []
             }
         case BACKGROUND_GREY:
             const Status = action.status
@@ -132,6 +133,24 @@ export const Reducer = (state = wish, action) => {
                 ...state,
                 symbol: symbolSelect
             }
+        case WISHLIST_DELETE:
+            const setWishList = action.id;
+            const wishListContents = state.wishlist.filter(
+                (individualItem) => individualItem.id !== setWishList
+            );
+            return {
+                ...state,
+                wishlist: wishListContents
+            };
+        case CART_DELETE:
+            const setCart = action.id;
+            const cartContents = state.cart.filter(
+                (individualItem) => individualItem.id !== setCart
+            );
+            return {
+                ...state,
+                cart: cartContents
+            };
         default:
             return state;
     }

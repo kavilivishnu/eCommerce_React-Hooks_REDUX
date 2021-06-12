@@ -126,8 +126,8 @@ function Kids() {
             {globalState.contentsDisplay ?
                 <div>
                     <h3 className="WishList_And_Cart_Count" >
-                        WishList ({globalState.wishCount}) Cart({globalState.cartCount}){" "}
-                        {/* WishList ({globalState.wishCount}){" "} */}
+                        <span className="WishList_Icon" >{globalState.wishCount}</span>
+                        <span className="Cart_Icon" >{globalState.cartCount}</span>
                     </h3>
                     <br />
                     <br />
@@ -136,7 +136,7 @@ function Kids() {
                     <br />
                     <br />
                     <div className="WishList_And_Cart" >
-                        <span style={{ marginRight: "10%" }} onClick={() => handleOpen(1)}>
+                        <span style={{ marginRight: "40px" }} onClick={() => handleOpen(1)}>
                             {globalState.wishCount !== 0 ?
                                 <BsFillHeartFill size="25" style={{ outline: "none", color: "red" }} />
                                 :
@@ -176,7 +176,7 @@ function Kids() {
                                     <label>Jackets</label>
                                 </div>
                             </div>
-                            { checkedToys ^ checkedShoes ^ checkedJacket === false ?
+                            {checkedToys ^ checkedShoes ^ checkedJacket === false ?
                                 <div>
                                     {array.map((photo, index) => (
                                         <div key={index} className="Arrange_API_Data" >
@@ -212,7 +212,7 @@ function Kids() {
                                                     }
                                                 >
                                                     Add To Wishlist
-                                        </button>
+                                                </button>
                                                 <button
                                                     className="Add_To_WishList_And_Cart_Buttons"
                                                     onClick={() =>
@@ -228,7 +228,7 @@ function Kids() {
                                                     }
                                                 >
                                                     Add To Cart
-                                        </button>
+                                                </button>
                                             </div>
                                         </div>
                                     ))}
@@ -237,7 +237,7 @@ function Kids() {
                                 ""
                             }
                             <br />
-                            { checkedToys ?
+                            {checkedToys ?
                                 <div>
                                     <br />
                                     <h1>Kids Toys</h1>
@@ -275,7 +275,7 @@ function Kids() {
                                                     }
                                                 >
                                                     Add To Wishlist
-                                        </button>
+                                                </button>
                                                 <button
                                                     className="Add_To_WishList_And_Cart_Buttons"
                                                     onClick={() =>
@@ -291,7 +291,7 @@ function Kids() {
                                                     }
                                                 >
                                                     Add To Cart
-                                        </button>
+                                                </button>
                                             </div>
                                         </div>
                                     ))}
@@ -300,7 +300,7 @@ function Kids() {
                                 ""
                             }
                             <br />
-                            { checkedShoes ?
+                            {checkedShoes ?
                                 <div>
                                     <br />
                                     <h1>Kids Shoes</h1>
@@ -338,7 +338,7 @@ function Kids() {
                                                     }
                                                 >
                                                     Add To Wishlist
-                                        </button>
+                                                </button>
                                                 <button
                                                     className="Add_To_WishList_And_Cart_Buttons"
                                                     onClick={() =>
@@ -354,7 +354,7 @@ function Kids() {
                                                     }
                                                 >
                                                     Add To Cart
-                                        </button>
+                                                </button>
                                             </div>
                                         </div>
                                     ))}
@@ -363,7 +363,7 @@ function Kids() {
                                 ""
                             }
                             <br />
-                            { checkedJacket ?
+                            {checkedJacket ?
                                 <div>
                                     <br />
                                     <h1>Kids Jackets</h1>
@@ -401,7 +401,7 @@ function Kids() {
                                                     }
                                                 >
                                                     Add To Wishlist
-                                        </button>
+                                                </button>
                                                 <button
                                                     className="Add_To_WishList_And_Cart_Buttons"
                                                     onClick={() =>
@@ -417,7 +417,7 @@ function Kids() {
                                                     }
                                                 >
                                                     Add To Cart
-                                        </button>
+                                                </button>
                                             </div>
                                         </div>
                                     ))}

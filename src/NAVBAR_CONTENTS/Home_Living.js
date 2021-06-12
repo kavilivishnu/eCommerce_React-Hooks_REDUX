@@ -124,7 +124,8 @@ function Home_Living() {
             {globalState.contentsDisplay ?
                 <div>
                     <h3 className="WishList_And_Cart_Count" >
-                        WishList ({globalState.wishCount}) Cart({globalState.cartCount}){" "}
+                        <span className="WishList_Icon" >{globalState.wishCount}</span>
+                        <span className="Cart_Icon" >{globalState.cartCount}</span>
                     </h3>
                     <br />
                     <br />
@@ -132,7 +133,7 @@ function Home_Living() {
                     <br />
                     <br />
                     <div className="WishList_And_Cart" >
-                        <span style={{ marginRight: "10%" }} onClick={() => handleOpen(1)}>
+                        <span style={{ marginRight: "40px" }} onClick={() => handleOpen(1)}>
                             {globalState.wishCount !== 0 ?
                                 <BsFillHeartFill size="25" style={{ outline: "none", color: "red" }} />
                                 :
@@ -172,7 +173,7 @@ function Home_Living() {
                                     <label style={{ marginLeft: "38%" }} >Curtains and blinds</label>
                                 </div>
                             </div>
-                            { checkedBedsheets ^ checkedCushionCovers ^ checkedCurtainsAndBlinds === false ?
+                            {checkedBedsheets ^ checkedCushionCovers ^ checkedCurtainsAndBlinds === false ?
                                 <div>
                                     {array.map((photo, index) => (
                                         <div key={index} className="Arrange_API_Data" >
@@ -208,7 +209,7 @@ function Home_Living() {
                                                     }
                                                 >
                                                     Add To Wishlist
-                                        </button>
+                                                </button>
                                                 <button
                                                     className="Add_To_WishList_And_Cart_Buttons"
                                                     onClick={() =>
@@ -224,7 +225,7 @@ function Home_Living() {
                                                     }
                                                 >
                                                     Add To Cart
-                                        </button>
+                                                </button>
                                             </div>
                                         </div>
                                     ))}
@@ -233,7 +234,7 @@ function Home_Living() {
                                 ""
                             }
                             <br />
-                            { checkedBedsheets ?
+                            {checkedBedsheets ?
                                 <div>
                                     <br />
                                     <h1>Bedsheets</h1>
@@ -271,7 +272,7 @@ function Home_Living() {
                                                     }
                                                 >
                                                     Add To Wishlist
-                                        </button>
+                                                </button>
                                                 <button
                                                     className="Add_To_WishList_And_Cart_Buttons"
                                                     onClick={() =>
@@ -287,7 +288,7 @@ function Home_Living() {
                                                     }
                                                 >
                                                     Add To Cart
-                                        </button>
+                                                </button>
                                             </div>
                                         </div>
                                     ))}
@@ -296,7 +297,7 @@ function Home_Living() {
                                 ""
                             }
                             <br />
-                            { checkedCushionCovers ?
+                            {checkedCushionCovers ?
                                 <div>
                                     <br />
                                     <h1>Cushion Covers</h1>
@@ -334,7 +335,7 @@ function Home_Living() {
                                                     }
                                                 >
                                                     Add To Wishlist
-                                        </button>
+                                                </button>
                                                 <button
                                                     className="Add_To_WishList_And_Cart_Buttons"
                                                     onClick={() =>
@@ -350,7 +351,7 @@ function Home_Living() {
                                                     }
                                                 >
                                                     Add To Cart
-                                        </button>
+                                                </button>
                                             </div>
                                         </div>
                                     ))}
@@ -359,7 +360,7 @@ function Home_Living() {
                                 ""
                             }
                             <br />
-                            { checkedCurtainsAndBlinds ?
+                            {checkedCurtainsAndBlinds ?
                                 <div>
                                     <br />
                                     <h1>Curtains and blinds</h1>
@@ -397,7 +398,7 @@ function Home_Living() {
                                                     }
                                                 >
                                                     Add To Wishlist
-                                        </button>
+                                                </button>
                                                 <button
                                                     className="Add_To_WishList_And_Cart_Buttons"
                                                     onClick={() =>
@@ -413,7 +414,7 @@ function Home_Living() {
                                                     }
                                                 >
                                                     Add To Cart
-                                        </button>
+                                                </button>
                                             </div>
                                         </div>
                                     ))}

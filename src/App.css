@@ -164,7 +164,7 @@
 .WishList_And_Cart_Count{
   margin-left: 42.5%;
   position: fixed;
-  margin-top: 5%;
+  margin-top: 6%;
   font-size: 23px;
 }
 
@@ -172,6 +172,15 @@
   margin-top: 3%;
   margin-left: 90%;
   cursor: pointer;
+  position: fixed;
+}
+
+.WishList_Icon {
+  margin-left: 19.4cm;
+}
+
+.Cart_Icon {
+  margin-left: 7%;
 }
 
 /* -------------------------------------- STYLING CONTENTS OF API --------------------------  */
@@ -330,16 +339,25 @@ input[type='checkbox'] + label {
   /* -------------------------------------- STYLING FOR WISHLIST AND CART COUNT------------------- */
 
   .WishList_And_Cart_Count {
-    margin-top: 10%;
-    margin-left: 32%;
+    margin-top: 16%;
+    /* margin-left: 32%; */
+    margin-left: 63%;
     font-size: 20px;
   }
 
   .WishList_And_Cart{
     /* margin-top: 3%; */
-    margin-left: 110%;
+    margin-left: 70%;
     cursor: pointer;
     margin-right: -40%
+  }
+
+  .WishList_Icon {
+    margin-left: 1cm;
+  }
+  
+  .Cart_Icon {
+    margin-left: 90%;
   }
 
   /* -------------------------------------- STYLING OF NAVIGATION BAR --------------------------  */

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { decrementCountCart } from "../Actions/Actions";
+import { decrementCountCart, cartDelete, clearCartCount } from "../Actions/Actions";
 
 function CartPage({
     setShowList,
@@ -8,9 +8,10 @@ function CartPage({
     setCartTotal,
 }) {
 
-    const [fetchUpdated, setFetchUpdated] = useState(
-        useSelector((state) => state)
-    );
+    // const [fetchUpdated, setFetchUpdated] = useState(
+    //     useSelector((state) => state)
+    // );
+    const fetchUpdated = useSelector((state) => state);
     const dispatch = useDispatch();
 
     const handleDelete = (photo) => {
@@ -24,45 +25,69 @@ function CartPage({
             dispatch(decrementCountCart());
         }
         const id = photo.id;
-        const filteredFetch = {
-            ...fetchUpdated,
-            cart: fetchUpdated.cart.filter(
-                (inidividualItem) => inidividualItem.id !== id
-            )
-        };
-        setFetchUpdated(filteredFetch);
+        dispatch(cartDelete(id));
+        // const filteredFetch = {
+        //     ...fetchUpdated,
+        //     cart: fetchUpdated.cart.filter(
+        //         (inidividualItem) => inidividualItem.id !== id
+        //     )
+        // };
+        // setFetchUpdated(filteredFetch);
     };
 
     const handleClear = () => {
-        const clearAll = {
-            cart: [],
-            ...fetchUpdated,
-            cartCount: 0
-        }
-        setFetchUpdated(clearAll);
+        // const clearAll = {
+        //     ...fetchUpdated,
+        //     cart: [],
+        //     cartCount: 0
+        // }
+        // setFetchUpdated(clearAll);
+        dispatch(clearCartCount());
         setCartTotal(0);
     }
 
     return (
         <div>
-            <h1>Cart</h1><br />
-            <p className="Items_Descriptions">
-                <b style={{ color: "rgb(255, 89, 71)" }} >
-                    Total Amout:
-                </b> {cartTotal} {fetchUpdated.symbol}
-            </p><br />
-            <button
-                // className="Add_To_WishList_And_Cart_Buttons"
-                className="Go_Back_To_Home"
-                onClick={() => setShowList(false)}>
-                Go Back to home
-            </button>
-            <button
-                className="Remove_All_Items_From_WishList_And_Cart"
-                onClick={(e) => handleClear(e)}>
-                Clear Cart
-            </button>
-            {fetchUpdated.cart &&
+            <div style={{ textAlign: 'center' }} >
+                <h1>Cart</h1><br />
+                <p className="Items_Descriptions">
+                    <b style={{ color: "rgb(255, 89, 71)" }} >
+                        Total Amout:
+                    </b> {cartTotal} {fetchUpdated.symbol}
+                </p><br />
+                <button
+                    // className="Add_To_WishList_And_Cart_Buttons"
+                    className="Go_Back_To_Home"
+                    onClick={() => setShowList(false)}>
+                    Go Back to home
+                </button>
+                <button
+                    className="Remove_All_Items_From_WishList_And_Cart"
+                    onClick={(e) => handleClear(e)}>
+                    Clear Cart
+                </button>
+            </div>
+            {fetchUpdated.cart.map((photo, index) => (
+                <div key={index} className="Arrange_API_Data" >
+                    {photo.description === "" ? (
+                        ""
+                    ) : (
+                        <div className="Arrange_API_Data" >
+                            <img src={photo.image} className="API_Images" />
+                            <br />
+                            <div className="Items_Descriptions" >
+                                <p> <b style={{ color: "rgb(255, 89, 71)" }} >Brand:</b> {photo.brand} </p>
+                                <p> <b style={{ color: "rgb(255, 89, 71)" }} >Amount:</b> {photo.price} {fetchUpdated.symbol}</p>
+                                <p> <b style={{ color: "rgb(255, 89, 71)" }} >Description:</b> {photo.description} </p>
+                            </div>
+                            <button className="NavigationBar_LogOut_Butoon" onClick={() => handleDelete(photo)}>Remove</button>
+                            <hr />
+                        </div>
+                    )}
+                </div>
+            ))
+            }
+            {/* {fetchUpdated.cart &&
                 fetchUpdated.cart.map((photo, index) => (
                     <div key={index} className="Arrange_API_Data" >
                         {photo.description === "" ? (
@@ -82,7 +107,7 @@ function CartPage({
                         )}
                     </div>
                 ))
-            }
+            } */}
         </div>
     );
 }

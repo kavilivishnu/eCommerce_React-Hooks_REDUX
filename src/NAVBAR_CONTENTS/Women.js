@@ -126,8 +126,8 @@ function Women() {
             {globalState.contentsDisplay ?
                 <div>
                     <h3 className="WishList_And_Cart_Count" >
-                        WishList ({globalState.wishCount}) Cart({globalState.cartCount}){" "}
-                        {/* WishList ({globalState.wishCount}){" "} */}
+                        <span className="WishList_Icon" >{globalState.wishCount}</span>
+                        <span className="Cart_Icon" >{globalState.cartCount}</span>
                     </h3>
                     <br />
                     <br />
@@ -136,7 +136,7 @@ function Women() {
                     <br />
                     <br />
                     <div className="WishList_And_Cart" >
-                        <span style={{ marginRight: "10%" }} onClick={() => handleOpen(1)}>
+                        <span style={{ marginRight: "40px" }} onClick={() => handleOpen(1)}>
                             {globalState.wishCount !== 0 ?
                                 <BsFillHeartFill size="25" style={{ outline: "none", color: "red" }} />
                                 :
@@ -176,7 +176,7 @@ function Women() {
                                     <label>Wallet</label>
                                 </div>
                             </div>
-                            { checkedWatches ^ checkedShoes ^ checkedWallet === false ?
+                            {checkedWatches ^ checkedShoes ^ checkedWallet === false ?
                                 <div>
                                     {array.map((photo, index) => (
                                         <div key={index} className="Arrange_API_Data" >
@@ -211,7 +211,7 @@ function Women() {
                                                     }
                                                 >
                                                     Add To Wishlist
-                                        </button>
+                                                </button>
                                                 <button
                                                     className="Add_To_WishList_And_Cart_Buttons"
                                                     onClick={() =>
@@ -227,7 +227,7 @@ function Women() {
                                                     }
                                                 >
                                                     Add To Cart
-                                        </button>
+                                                </button>
                                             </div>
                                         </div>
                                     ))}
@@ -236,7 +236,7 @@ function Women() {
                                 ""
                             }
                             <br />
-                            { checkedWatches ?
+                            {checkedWatches ?
                                 <div>
                                     <br />
                                     <h1>Women Watches</h1>
@@ -274,7 +274,7 @@ function Women() {
                                                     }
                                                 >
                                                     Add To Wishlist
-                                        </button>
+                                                </button>
                                                 <button
                                                     className="Add_To_WishList_And_Cart_Buttons"
                                                     onClick={() =>
@@ -290,7 +290,7 @@ function Women() {
                                                     }
                                                 >
                                                     Add To Cart
-                                        </button>
+                                                </button>
                                             </div>
                                         </div>
                                     ))}
@@ -299,7 +299,7 @@ function Women() {
                                 ""
                             }
                             <br />
-                            { checkedShoes ?
+                            {checkedShoes ?
                                 <div>
                                     <br />
                                     <h1>Women Shoes</h1>
@@ -337,7 +337,7 @@ function Women() {
                                                     }
                                                 >
                                                     Add To Wishlist
-                                        </button>
+                                                </button>
                                                 <button
                                                     className="Add_To_WishList_And_Cart_Buttons"
                                                     onClick={() =>
@@ -353,7 +353,7 @@ function Women() {
                                                     }
                                                 >
                                                     Add To Cart
-                                        </button>
+                                                </button>
                                             </div>
                                         </div>
                                     ))}
@@ -362,7 +362,7 @@ function Women() {
                                 ""
                             }
                             <br />
-                            { checkedWallet ?
+                            {checkedWallet ?
                                 <div>
                                     <br />
                                     <h1>Men Hand Bag</h1>
@@ -398,7 +398,7 @@ function Women() {
                                                     }
                                                 >
                                                     Add To Wishlist
-                                        </button>
+                                                </button>
                                                 <button
                                                     onClick={() =>
                                                         handleTocart(
@@ -413,7 +413,7 @@ function Women() {
                                                     }
                                                 >
                                                     Add To Cart
-                                        </button>
+                                                </button>
                                             </div>
                                         </div>
                                     ))}

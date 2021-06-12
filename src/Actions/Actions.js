@@ -1,12 +1,14 @@
 export const ADD_TO_WISHLIST = "ADD_TO_WISHLIST";
 export const ADD_TO_CART = "ADD_TO_CART";
-export const DELETE_ITEM = "DELETE_ITEM";
 export const DECREMENT_COUNT = "DECREMENT_COUNT";
 export const DECREMENT_COUNT_CART = "DECREMENT_COUNT_CART";
-export const CLEAR_COUNT = "CLEAR_COUNT";
+export const CLEAR_WISHLIST_COUNT = "CLEAR_WISHLIST_COUNT";
+export const CLEAR_CART_COUNT = "CLEAR_CART_COUNT";
 export const BACKGROUND_GREY = "BACKGROUND_GREY";
 export const SHOW_CONTENTS = "SHOW_CONTENTS";
 export const CURRENCY_SELECT = "CURRENCY_SELECT";
+export const WISHLIST_DELETE = "WISHLIST_DELETE";
+export const CART_DELETE = "CART_DELETE";
 
 export function addToWishList(wish, id, photo, money, info, brand) {
     // ***The sequence of arguments of the function and the sequence of the arguments
@@ -41,13 +43,6 @@ export function addToCart(wish, id, photo, money, info, brand) {
     }
 }
 
-export function deleteItem(index) {
-    return {
-        type: DELETE_ITEM,
-        index
-    };
-}
-
 export function decrementCount() {
     return {
         type: DECREMENT_COUNT
@@ -60,9 +55,15 @@ export function decrementCountCart() {
     }
 }
 
-export function clearCount() {
+export function clearWishListCount() {
     return {
-        type: CLEAR_COUNT
+        type: CLEAR_WISHLIST_COUNT
+    }
+}
+
+export function clearCartCount() {
+    return {
+        type: CLEAR_CART_COUNT
     }
 }
 
@@ -86,4 +87,20 @@ export function currencySelect(currency) {
         currency
     }
 }
+
+export function wishListDelete(id) {
+    return {
+        type: WISHLIST_DELETE,
+        id
+    }
+}
+
+export function cartDelete(id) {
+    return {
+        type: CART_DELETE,
+        id
+    }
+}
+
+
 
