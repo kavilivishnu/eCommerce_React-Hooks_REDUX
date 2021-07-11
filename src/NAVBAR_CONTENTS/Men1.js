@@ -30,11 +30,13 @@ function Men1() {
     const [showWishList, setShowWishList] = useState(false);
     const [visibleAmount, setVisibleAmount] = useState(false);
 
+
     useEffect(() => {
         const result1 =
-            "https://api.unsplash.com/search/photos?page=6&query=men-fashion&per_page=40&client_id=0gZWxHSSauOXUSFb47wPsYWsNh29f7NqcQk4fJGpOrg";
+            "https://api.unsplash.com/search/photos?page=6&query=men-fashion&per_page=40&client_id=GTIsiXGk-uLW-0qkTP-n8CFE6UI3nG51Uzi61GjeNog";
         axios.get(result1).then((response) => {
-            setArray(response.data.results);
+            const res = response.data.results;
+            setArray(res);
         });
     }, []);
 
@@ -97,21 +99,21 @@ function Men1() {
     const handleChecked = (val) => {
         if (val === 1) {
             setCheckedWatches(!checkedWatches);
-            const watch = "https://api.unsplash.com/search/photos?page=1&query=men-watch&per_page=40&client_id=0gZWxHSSauOXUSFb47wPsYWsNh29f7NqcQk4fJGpOrg";
+            const watch = "https://api.unsplash.com/search/photos?page=1&query=men-watch&per_page=40&client_id=GTIsiXGk-uLW-0qkTP-n8CFE6UI3nG51Uzi61GjeNog";
             axios.get(watch).then((response) => {
                 setWatchArray(response.data.results);
             });
         }
         if (val === 2) {
             setCheckedShoes(!checkedShoes);
-            const shoe = "https://api.unsplash.com/search/photos?page=1&query=men-shoes&per_page=40&client_id=0gZWxHSSauOXUSFb47wPsYWsNh29f7NqcQk4fJGpOrg";
+            const shoe = "https://api.unsplash.com/search/photos?page=1&query=men-shoes&per_page=40&client_id=GTIsiXGk-uLW-0qkTP-n8CFE6UI3nG51Uzi61GjeNog";
             axios.get(shoe).then((response) => {
                 setShoeArray(response.data.results);
             });
         }
         if (val === 3) {
             setCheckedWallet(!checkedWallet);
-            const wallet = "https://api.unsplash.com/search/photos?page=1&query=men-wallet&per_page=40&client_id=0gZWxHSSauOXUSFb47wPsYWsNh29f7NqcQk4fJGpOrg";
+            const wallet = "https://api.unsplash.com/search/photos?page=1&query=men-wallet&per_page=40&client_id=GTIsiXGk-uLW-0qkTP-n8CFE6UI3nG51Uzi61GjeNog";
             axios.get(wallet).then((response) => {
                 setWalletArray(response.data.results);
             });

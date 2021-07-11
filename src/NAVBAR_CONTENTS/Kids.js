@@ -32,7 +32,7 @@ function Kids() {
 
     useEffect(() => {
         const result1 =
-            "https://api.unsplash.com/search/photos?page=1&query=kids-clothe&per_page=40&client_id=0gZWxHSSauOXUSFb47wPsYWsNh29f7NqcQk4fJGpOrg";
+            "https://api.unsplash.com/search/photos?page=1&query=kids-clothe&per_page=40&client_id=GTIsiXGk-uLW-0qkTP-n8CFE6UI3nG51Uzi61GjeNog";
         axios.get(result1).then((response) => {
             setArray(response.data.results);
         });
@@ -99,21 +99,21 @@ function Kids() {
     const handleChecked = (val) => {
         if (val === 1) {
             setCheckedToys(!checkedToys);
-            const toys = "https://api.unsplash.com/search/photos?page=1&query=kids-toys&per_page=40&client_id=0gZWxHSSauOXUSFb47wPsYWsNh29f7NqcQk4fJGpOrg";
+            const toys = "https://api.unsplash.com/search/photos?page=1&query=kids-toys&per_page=40&client_id=GTIsiXGk-uLW-0qkTP-n8CFE6UI3nG51Uzi61GjeNog";
             axios.get(toys).then((response) => {
                 setToyArray(response.data.results);
             });
         }
         if (val === 2) {
             setCheckedShoes(!checkedShoes);
-            const shoe = "https://api.unsplash.com/search/photos?page=1&query=kids-shoes&per_page=40&client_id=0gZWxHSSauOXUSFb47wPsYWsNh29f7NqcQk4fJGpOrg";
+            const shoe = "https://api.unsplash.com/search/photos?page=1&query=kids-shoes&per_page=40&client_id=GTIsiXGk-uLW-0qkTP-n8CFE6UI3nG51Uzi61GjeNog";
             axios.get(shoe).then((response) => {
                 setShoeArray(response.data.results);
             });
         }
         if (val === 3) {
             setCheckedJacket(!checkedJacket);
-            const jackets = "https://api.unsplash.com/search/photos?page=1&query=kids-jackets&per_page=40&client_id=0gZWxHSSauOXUSFb47wPsYWsNh29f7NqcQk4fJGpOrg";
+            const jackets = "https://api.unsplash.com/search/photos?page=1&query=kids-jackets&per_page=40&client_id=GTIsiXGk-uLW-0qkTP-n8CFE6UI3nG51Uzi61GjeNog";
             axios.get(jackets).then((response) => {
                 setJacketArray(response.data.results);
             });
