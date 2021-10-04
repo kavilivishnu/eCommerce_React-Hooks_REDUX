@@ -2,6 +2,11 @@ You can view the webpage here - https://orderitnow.netlify.app
 
 The App is Fully Responsive.
 
+You can sign in for free. Fell free to use the below credentials.
+
+Email: codingisfun@codingisfun.com
+Passord: codingisfun
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
