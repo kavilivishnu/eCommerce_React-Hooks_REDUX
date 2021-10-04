@@ -1,11 +1,11 @@
-You can view the webpage here - https://orderitnow.netlify.app
+**You can view the webpage here** - https://orderitnow.netlify.app
 
-The App is Fully Responsive.
+**The App is Fully Responsive.**
 
-You can sign in for free. Fell free to use the below credentials.
+You can **Sign in** for Free. Feel free to use the below credentials.
 
-Email: codingisfun@codingisfun.com
-Password: codingisfun
+**Email**: codingisfun@codingisfun.com
+**Password**: codingisfun
 
 # Getting Started with Create React App
 
