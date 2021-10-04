@@ -5,7 +5,7 @@ The App is Fully Responsive.
 You can sign in for free. Fell free to use the below credentials.
 
 Email: codingisfun@codingisfun.com
-Passord: codingisfun
+Password: codingisfun
 
 # Getting Started with Create React App
 
